@@ -2,13 +2,13 @@ class Api::V1::WeeksController < ApplicationController
 
   def show
     @merchants = Merchant.all
-    @desembolsos = Order.where('week = ?', params[:id]) or not_found
-    if @desembolsos.count != 0
-      @week_desembolsos = @desembolsos.where.not(completed_at: nil)
-                                      .where('week = ?', @desembolsos.first.week)
+    @disbursements = Order.where('week = ?', params[:id]) or not_found
+    if @disbursements.count != 0
+      @week_disbursements = @disbursements.where.not(completed_at: nil)
+                                          .where('week = ?', @disbursements.first.week)
     end
 
-    # @informe = ReportJob.set(wait: 1.minutes).perform_later(params[:id])
+    @weekly_report = ReportJob.set(wait: 1.weeks).perform_later(params[:id])
   end
 
   def index
