@@ -10,4 +10,9 @@ class Api::V1::WeeksController < ApplicationController
 
     @informe = SayHelloJob.set(wait: 1.minutes).perform_later(params[:id])
   end
+
+  def index
+    @merchants = Merchant.all
+    render :index
+  end
 end
