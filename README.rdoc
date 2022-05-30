@@ -1,0 +1,62 @@
+= seQura
+
+Chellenger to apply seQura.
+
+== Installation
+
+In the following project I use some gems:
+
+  gem 'rspec-rails', '~> 4.0.1'
+  gem "sidekiq"
+  gem 'jbuilder', '~> 2.5'
+
+
+== Setting up
+
+The steps for setup are listed below:
+
+1) bundle install
+2) rails db:create
+3) rails db:migrate
+4) rails db:seed
+5) bundle exec sidekiq
+
+<b>Routes</b>
+
+# given week
+/api/v1/weeks/weeks/:id
+
+# all disbursements for all weeks
+/api/v1/weeks/weeks/
+
+
+== Basic usage
+
+Exposes the disbursements for merchants in all weeks
+/api/v1/weeks/weeks/
+
+
+Exposes the disbursements for the given merchants in a given week:
+/api/v1/weeks/weeks/:ID
+
+When trying to access a future week, a report is generated to be done within the next 7 days
+For example: /api/v1/weeks/weeks/4
+
+With the help of ActiveJobs and sidekiq. You can see the processes here:
+
+localhost:3000/sidekiq
+
+
+== Final comment
+
+I adjusted to the required time of the challenger, but I have noticed that this API has many improvement points.
+
+Some of them are:
+
+- Improve and increase the tests through Rspec or another
+
+- Work the future reports generated from ActiveJobs in some way
+
+- Apply some good practices to avoid repeating code
+
+- Comment the code
