@@ -12,6 +12,7 @@ json.array! @merchants do |merchant|
                       .where(merchant_id: merchant.id)
                       .where("amount > ?", 300)
                       .sum(:amount)
+  # The commissions that seQura charges for its services are subtracted, and the following values ​​are left
   json.set! :disbursement,
                       less_50e - less_50e * 1 / 100      +
                       less_300e - less_300e * 0.95 / 100 +
