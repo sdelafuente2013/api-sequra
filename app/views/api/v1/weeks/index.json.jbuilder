@@ -17,3 +17,4 @@ json.array! @merchants do |merchant|
               menor_300 - menor_300 * 0.95 / 100 +
               mayor_300 - mayor_300 * 0.85 / 100
 end
+
