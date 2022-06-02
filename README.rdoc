@@ -45,8 +45,6 @@ localhost:3000/sidekiq
 
 == Final comment
 
-I adjusted to the required time of the challenger, but I have noticed that this API has many improvement points.
-
 Some of them are:
 
 - Improve and increase the tests through Rspec or another
