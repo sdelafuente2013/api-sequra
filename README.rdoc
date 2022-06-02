@@ -1,7 +1,3 @@
-= seQura
-
-Chellenger to apply seQura.
-
 == Installation
 
 In the following project I use some gems:
